@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -13,7 +14,13 @@ public class ArrayInput implements Runnable{
     private int arraySize() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input the length of array: ");
-        return scanner.nextInt();
+        int quantity;
+        try {
+            quantity = scanner.nextInt();
+        } catch (InputMismatchException ex) {
+            throw new RuntimeException("Invalid type of quantity numbers. Must be integer!");
+        }
+        return quantity;
     }
 
     @Override

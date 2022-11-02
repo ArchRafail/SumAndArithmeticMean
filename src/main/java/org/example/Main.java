@@ -22,6 +22,8 @@ public class Main {
     }
 
     public static void results(int[] array, int sum, float arithmeticMean) {
+        if (array == null)
+            return;
         System.out.println("\nCurrent array:");
         for (int element: array) {
             System.out.print(element + " ");
