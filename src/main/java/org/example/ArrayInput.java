@@ -11,14 +11,20 @@ public class ArrayInput implements Runnable{
         return array;
     }
 
+    /**
+     When method ask you to enter the length of array, input 15.
+     */
     private int arraySize() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input the length of array: ");
         int quantity;
         try {
             quantity = scanner.nextInt();
+            if (quantity == 0) throw new NegativeArraySizeException();
         } catch (InputMismatchException ex) {
             throw new RuntimeException("Invalid type of quantity numbers. Must be integer!");
+        } catch (NegativeArraySizeException ex) {
+            throw new RuntimeException("Length of array has to be more then 0!");
         }
         return quantity;
     }

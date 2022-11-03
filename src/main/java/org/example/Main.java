@@ -9,7 +9,7 @@ public class Main {
         try {
             threadInput.join();
         } catch (InterruptedException e) {
-            throw new RuntimeException("Input thread can't be forced!");
+            throw new RuntimeException("Input thread interrupted!");
         }
         threadSum.start();
         threadArithmeticMean.start();
@@ -24,7 +24,7 @@ public class Main {
     public static void results(int[] array, int sum, float arithmeticMean) {
         if (array == null)
             return;
-        System.out.println("\nCurrent array:");
+        System.out.println("\nGeneral array:");
         for (int element: array) {
             System.out.print(element + " ");
         }
